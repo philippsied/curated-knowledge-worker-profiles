@@ -1,0 +1,24 @@
+{
+  "name": "curated-knowledge-worker-profiles",
+  "owner": {
+    "name": "Philipp"
+  },
+  "metadata": {
+    "version": "1.0.0",
+    "description": "Handpicked selection of knowledge worker profiles, to accelerate their setup in various fields.",
+    "keywords": ["knowledge workers", "profiles", "expertise", "contributions"]
+  },
+  "plugins": [
+    {
+      "name": "ui/ux design",
+      "source": "./plugins/ui-ux",
+      "version": "1.0.0",
+      "description": "Curated set of high quality skills for ui and ux related task like creating design systems.",
+      "author": {
+        "name": "Mixed",
+        "url": "Mixed"
+      },
+      "category": "design"
+    }
+  ]
+}
