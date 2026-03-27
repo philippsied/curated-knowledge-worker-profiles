@@ -1,11 +1,9 @@
 {
-  "name": "ui/ux design",
+  "name": "ui-ux",
   "version": "1.0.0",
   "description": "Curated set of high quality skills for ui and ux related task like creating design systems.",
   "author": {
-    "name": "Mixed",
-    "url": "Mixed"
+    "name": "Mixed"
   },
-  "skills": "./",
   "keywords": ["ux-design", "frontend", "creative-design", "ui"]
 }
