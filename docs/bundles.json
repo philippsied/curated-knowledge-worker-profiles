@@ -1,0 +1,167 @@
+{
+  "bundles": {
+    "minimal": {
+      "description": "Core essentials only (~5 plugins, ~15KB context)",
+      "marketplace_plugins": [],
+      "external_plugins": [
+        "superpowers@superpowers-marketplace",
+        "commit-commands@claude-plugins-official",
+        "semgrep@claude-plugins-official",
+        "explanatory-output-style@claude-plugins-official",
+        "claude-md-management@claude-plugins-official"
+      ]
+    },
+    "highquality": {
+      "description": "Universal curated best-of set (~14 plugins, ~35KB context)",
+      "extends": "minimal",
+      "marketplace_plugins": [],
+      "external_plugins": [
+        "compound-engineering@compound-engineering-plugin",
+        "everything-claude-code@everything-claude-code",
+        "code-review@claude-plugins-official",
+        "feature-dev@claude-plugins-official",
+        "voltagent-core-dev@voltagent-subagents",
+        "voltagent-qa-sec@voltagent-subagents",
+        "taches-cc-resources@taches-cc-resources",
+        "elements-of-style@superpowers-marketplace",
+        "productivity@knowledge-work-plugins"
+      ]
+    },
+    "saas": {
+      "description": "Next.js/Vercel SaaS development (~16 plugins, ~40KB context)",
+      "extends": "highquality",
+      "marketplace_plugins": ["next-best-practices", "vercel-composition-patterns"],
+      "external_plugins": [
+        "vercel@claude-plugins-official",
+        "playwright@claude-plugins-official"
+      ]
+    },
+    "uiux": {
+      "description": "UI/UX Design — colors, typography, a11y, components (~21 plugins, ~50KB context)",
+      "extends": "highquality",
+      "marketplace_plugins": ["ui-ux-pro-max", "vercel-composition-patterns", "seo-audit"],
+      "external_plugins": [
+        "frontend-design@claude-plugins-official",
+        "bencium-innovative-ux-designer@bencium-marketplace",
+        "design-audit@bencium-marketplace",
+        "typography@bencium-marketplace",
+        "a11y-audit@claude-code-skills",
+        "web-dev-tools@claudekit-skills",
+        "playwright@claude-plugins-official"
+      ]
+    },
+    "landingpage": {
+      "description": "Landing Page creation — design + content + SEO + deploy (~26 plugins, ~60KB context)",
+      "extends": "uiux",
+      "marketplace_plugins": ["next-best-practices", "audit-saas-gtm"],
+      "external_plugins": [
+        "vercel@claude-plugins-official",
+        "content-creator@claude-code-skills",
+        "marketing-skills@claude-code-skills",
+        "bencium-aeo@bencium-marketplace",
+        "bencium-code-conventions@bencium-marketplace"
+      ]
+    },
+    "founder": {
+      "description": "Startup/Founder — business, product, marketing, research (~24 plugins, ~55KB context)",
+      "extends": "highquality",
+      "marketplace_plugins": ["audit-saas-gtm"],
+      "external_plugins": [
+        "business-growth-skills@claude-code-skills",
+        "c-level-skills@claude-code-skills",
+        "marketing-skills@claude-code-skills",
+        "content-creator@claude-code-skills",
+        "pm-skills@claude-code-skills",
+        "product-manager@claude-code-skills",
+        "product-skills@claude-code-skills",
+        "voltagent-biz@voltagent-subagents",
+        "scrum-master@claude-code-skills",
+        "voltagent-research@voltagent-subagents"
+      ]
+    },
+    "research": {
+      "description": "Research and analysis workflow (~9 plugins, ~20KB context)",
+      "extends": "minimal",
+      "marketplace_plugins": [],
+      "external_plugins": [
+        "voltagent-research@voltagent-subagents",
+        "voltagent-biz@voltagent-subagents",
+        "autoresearch-agent@claude-code-skills",
+        "research-summarizer@claude-code-skills"
+      ]
+    },
+    "fullstack": {
+      "description": "Full engineering stack (~34 plugins, ~70KB context)",
+      "extends": "saas",
+      "marketplace_plugins": [],
+      "external_plugins": [
+        "voltagent-biz@voltagent-subagents",
+        "voltagent-research@voltagent-subagents",
+        "voltagent-meta@voltagent-subagents",
+        "voltagent-lang@voltagent-subagents",
+        "voltagent-dev-exp@voltagent-subagents",
+        "voltagent-infra@voltagent-subagents",
+        "voltagent-data-ai@voltagent-subagents",
+        "ai-ml-tools@claudekit-skills",
+        "backend-tools@claudekit-skills",
+        "debugging-tools@claudekit-skills",
+        "devops-tools@claudekit-skills",
+        "problem-solving-tools@claudekit-skills",
+        "research-tools@claudekit-skills",
+        "specialized-tools@claudekit-skills",
+        "web-dev-tools@claudekit-skills",
+        "fullstack-engineer@claude-code-skills",
+        "engineering-skills@claude-code-skills",
+        "engineering-advanced-skills@claude-code-skills"
+      ]
+    },
+    "all": {
+      "description": "Everything enabled (~72 plugins, ~130KB context)",
+      "marketplace_plugins": "__ALL__",
+      "external_plugins": "__ALL__"
+    }
+  },
+  "addons": {
+    "ralph": {
+      "description": "Ralph Loop — autonomous implementation workflow",
+      "external_plugins": ["ralph-loop@claude-plugins-official"]
+    }
+  },
+  "projectTypes": {
+    "saas": {
+      "bundle": "saas",
+      "label": "SaaS",
+      "description": "Next.js/Vercel SaaS-Anwendung"
+    },
+    "landingpage": {
+      "bundle": "landingpage",
+      "label": "Landing Page",
+      "description": "Landing Page — Design + Content + SEO + Deploy"
+    },
+    "uiux": {
+      "bundle": "uiux",
+      "label": "UI/UX",
+      "description": "UI/UX Design — Farben, Typografie, a11y, Komponenten"
+    },
+    "api": {
+      "bundle": "highquality",
+      "label": "API / Backend",
+      "description": "API oder Backend-Service ohne Frontend"
+    },
+    "research": {
+      "bundle": "research",
+      "label": "Research",
+      "description": "Recherche- und Analyse-Workflow"
+    },
+    "fullstack": {
+      "bundle": "fullstack",
+      "label": "Full Stack",
+      "description": "Kompletter Engineering-Stack"
+    },
+    "custom": {
+      "bundle": "minimal",
+      "label": "Custom",
+      "description": "Minimale Basis — manuell erweitern"
+    }
+  }
+}
