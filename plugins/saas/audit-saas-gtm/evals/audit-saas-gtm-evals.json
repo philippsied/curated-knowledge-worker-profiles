@@ -1,0 +1,95 @@
+{
+  "skill_name": "audit-saas-gtm",
+  "description": "Test specs for the SaaS GTM Audit Skill. 4 fictional specifications at different maturity levels. Score range: 0-114 (38 areas).",
+  "evals": [
+    {
+      "id": 1,
+      "name": "bare-minimum-pre-mvp",
+      "prompt": "Conduct an audit of this SaaS specification. The product is in the pre-MVP stage.\n\n---\n# DocuMind — AI Document Assistant\n\n## Problem\nSmall law firms (5-20 lawyers) spend 40% of their time on document research. We conducted 12 interviews — all confirm the problem.\n\n## Solution\nAI-powered document assistant that searches and summarizes legal documents. Uses GPT-4o via API. Users upload documents, ask questions, get answers with source references.\n\n## Target Audience\nLawyers and paralegals in firms with 5-20 people.\n\n## Tech Stack\nNext.js, Supabase, Pinecone, OpenAI API.\n\n## Pricing\n49 EUR/month per user.\n\n## Next Steps\nBuild MVP in 8 weeks, win 5 pilot customers.\n---",
+      "expected_output": {
+        "expected_maturity": "Beginner",
+        "expected_score_range": "14-24 / 114",
+        "expected_strongest_phase": "Phase 1 (1.5-2.0)",
+        "expected_weakest_phases": "Phase 4 (0.0-0.3), Phase 7 (0.0), Phase 8 (0.0)",
+        "must_flag_critical": [
+          "EU AI Act: Legal document analysis is potentially high-risk",
+          "GDPR: Legal documents contain highly sensitive data",
+          "No guardrails despite sensitive domain",
+          "No fallback model (single-provider dependency)",
+          "No evaluation/testing strategy",
+          "No payment infrastructure",
+          "No launch/discovery strategy"
+        ],
+        "must_not_overrate": [
+          "RAG: Only Pinecone mentioned, no RAG level/chunking/reranking — max 🟠 1",
+          "Pricing: No AI cost calculation, no tiers — max 🟠 1"
+        ],
+        "must_detect_domain_sensitivity": "Legal domain → elevated compliance requirements"
+      }
+    },
+    {
+      "id": 2,
+      "name": "decent-mvp-spec",
+      "prompt": "Conduct an audit of this SaaS specification. The product is in MVP stage.\n\n---\n# SupportFlow AI — Intelligent Customer Support\n\n## Problem Statement\nMid-market SaaS (50-500 employees) struggles with rising support costs. 35 EUR/ticket, 60% repetitive. 30 interviews, 8 LOIs.\n\n## ICP\nHead of Support at mid-market SaaS. 500-5000 tickets/month.\n\n## Value Hypothesis\nAI ticket deflection reduces support costs by 40%. Validated when deflection >30% at CSAT >4.0.\n\n## Metrics\n- Primary: Deflection Rate (0% → 30% → 50%), CSAT (3.8 → 4.0 → 4.3)\n- Guardrail: Escalation <25%, Error <5%\n- AI: Hallucination <10%, P95 <3s, Cost <0.15 EUR/ticket\n\n## Model: Claude Sonnet (primary), GPT-4o-mini (fallback). Routing: FAQ→Haiku, Complex→Sonnet. DeepEval with 50 golden examples.\n\n## RAG: Advanced (pgvector+BM25, 400-token chunks, Cohere Rerank). Knowledge: Zendesk articles + anonymized tickets. <50ms retrieval.\n\n## Prompts: SemVer in prompts/ dir. v1.2.0 current. Temp 0.3. CoT for complex tickets.\n\n## UX: Suggestions with edit button, confidence badge, source links. Degradation: AI failure → human agent. Onboarding: 3-step setup.\n\n## Safety: Input (PII-Presidio, prompt injection classifier), Output (toxicity, PII leakage, format). HITL: <70% → human. Keywords 'cancellation'/'lawyer' → always human. Hallucination: RAG+citations+'I'm not sure'.\n\n## Compliance: EU AI Act Limited Risk. GDPR Art.6(1)(b). DPA with Anthropic. DPIA in preparation. SOC-2 Type 1 Q3.\n\n## Arch: Modular monolith + inference service. LiteLLM gateway. SSE. Redis + prefix caching.\n\n## Monitoring: Datadog. AI dashboard (token costs, deflection, confidence, escalation). Alerts on deflection <10% or error >10%.\n\n## CI/CD: GitHub Actions + DeepEval. Quality gate 80%. LaunchDarkly feature flags.\n\n## Rollout: Offline eval (2w) → dogfood (2w) → 3 beta customers (4w) → GA. Kill switch on error >10% or CSAT <3.5.\n\n## Pricing: Freemium 100 tickets/mo. Pro 299 EUR/mo (2000). Enterprise custom. Annual -25%.\n\n## Payment: Stripe integration planned for Pro launch.\n---",
+      "expected_output": {
+        "expected_maturity": "Advanced",
+        "expected_score_range": "62-78 / 114",
+        "expected_strongest_phase": "Phase 4 (2.3-2.7)",
+        "expected_weakest_phases": "Phase 7 (0.5-1.0), Phase 8 (0.0-0.5)",
+        "must_flag_critical": [
+          "No responsible AI checklist",
+          "Data flywheel not defined",
+          "Payment infrastructure only 'planned' — not verified",
+          "No launch/discovery strategy",
+          "No legal/trust pages mentioned"
+        ],
+        "must_flag_improvements": [
+          "Drift detection missing",
+          "No shadow testing",
+          "AI cost margin not calculated (only cost per ticket)"
+        ],
+        "must_not_overrate": [
+          "HITL: No audit trail, no progressive automation — max 🟡 2",
+          "Evaluation: No LLM-as-Judge, no four-layer architecture — max 🟡 2",
+          "Payment: 'Stripe planned' is not 'Stripe live' — max 🟠 1"
+        ]
+      }
+    },
+    {
+      "id": 3,
+      "name": "near-gold-scaling",
+      "prompt": "Conduct a Quick Check audit. Product in scaling phase with 3.2M EUR ARR.\n\n---\n# AnalyticsAI Pro — Enterprise BI\n\n[45 enterprise customers, NRR 118%, Sean-Ellis 52% at n=87]\n\nFully specified: 40 interviews, TAM 4.2B. ICP: Head of Analytics, Enterprise 1000+ employees. Pricing hybrid (999 EUR/mo + 0.05/query, 3 tiers, -28% annual, AI cost 0.02/query margin). NSM: Queries/analyst/week (23→35). Guardrails: Accuracy >92%, P95 <4s, cost <0.05/query.\n\nModel: Multi-tier (Haiku/Sonnet/Opus). Eval matrix. Abstraction layer. Gemini fallback. RAG: Advanced+GraphRAG, hybrid search, reranking, 350-token, <40ms. Prompts: SemVer, immutable, audit trail, decoupled. Agent: Single+tools (SQL/chart/validator), LangGraph, checkpointing. Eval: RAGAS+DeepEval+Promptfoo, 150 golden, CI gate 85%, shadow 5%, LLM-as-Judge, quarterly red-team.\n\nUX: Draft-SQL, confidence score, reasoning panel, sources, version history, regeneration, tool language, progressive disclosure 3 levels. Trust: Performance stats in onboarding, capability+limitation. Degradation: Cache→fallback→SimplifiedSQL→manual, amber, context preserved. Onboarding: Schema(5min)→Query(2min)→Dashboard(10min), role-based, 78% W1 activation.\n\nGuards input: Prompt injection, PII, SQL injection, topic boundaries. Output: SQL validation, plausibility, PII scan, confidence <60% suppress. HITL: Confidence routing <70%, audit trail, walk phase (>90% auto, 70-90% spot), PoLA. Hallucination: RAG+citations+CoT+self-consistency(3 SQL)+temp 0.2, <3%, DeepEval faithfulness.\n\nEU AI Act: Limited risk (justified). GPAI documented. AI literacy Q1 2026. GDPR: Art.6(1)(b), DPA Anthropic+OpenAI (AI clauses), DPIA completed, Art.22, data minimization. Responsible AI: Bias 12 industries, fairness quarterly, red-team biannually, ownership matrix.\n\nArch: Modular monolith+inference+query service. Portkey gateway. SSE. Multi-tier cache. Event-driven async. Security: AES-256, TLS 1.3, SOC-2 Type 2, RBAC, audit log, SAST+DAST, pen-test annually, secret rotation 90d. Monitoring: Datadog+Langfuse, AI dashboard, drift PSI weekly, alerting P0-P3. CI/CD: Promptfoo+DeepEval, prompt/* branches, ArgoCD canary 10→25→50→100%, rollback <80%.\n\nPayment: Stripe live, subscription lifecycle tested, webhooks verified, customer portal active, Stripe Tax, Radar fraud rules. AI economics: IER 25:1, margin 68%, usage caps per tier, cost dashboard with alerts.\n\nLaunch: Already live. GEO: SSR (Next.js), structured data, Core Web Vitals green, comparison pages, FAQ. LinkedIn thought leadership active. G2 listing with 23 reviews.\n\nRollout: Validation→alpha(2w)→beta 10%(4w)→open 50%(2w)→GA. Flags (kill, %, version, fallback). Rollback <10min. Feedback: Thumbs+structured+implicit, weekly 1%, monthly review, quarterly bias, retrain accuracy<90% 3d or PSI>0.2. Retention: NRR 118%→125%, health score 8pts, alerts usage-drop >30%, expansion 80%. Metrics: MRR/NRR/GRR/LTV:CAC(5.2:1)/payback(9mo)/Rule40(47%), weekly pulse, red-flags. Legal: Privacy policy, ToS, cookie consent, imprint, trust page, status page, DPA template.\n---",
+      "expected_output": {
+        "expected_maturity": "Gold Standard (lower range)",
+        "expected_score_range": "90-104 / 114",
+        "expected_strongest_phases": "Phase 4 (2.7-3.0), Phase 7 (2.5-3.0)",
+        "expected_weakest_phase": "No clear weak point, Phase 6 possibly 2.3-2.5",
+        "must_flag_improvements": [
+          "Anti-pattern awareness not explicit",
+          "Continuous discovery not named",
+          "Container security / network policies missing",
+          "Community/ecosystem missing"
+        ],
+        "quick_check_note": "Nearly all P0 fulfilled. Report should be concise, mainly P1/P2 optimizations."
+      }
+    },
+    {
+      "id": 4,
+      "name": "non-ai-saas-edge-case",
+      "prompt": "Conduct an audit of this specification.\n\n---\n# TeamChat Pro — Team Messaging Platform\n\nSlack alternative for SMBs. Channels, DMs, file sharing, video calls.\nPricing: 5 EUR/user/month.\nFeatures: Real-time messaging (WebSocket), channel management, file upload (100MB), video calls (WebRTC), integrations (GCal, Jira), search (Elasticsearch).\nTech: React, Node.js, PostgreSQL, Redis, AWS.\nLaunch in 12 weeks.\n---",
+      "expected_output": {
+        "expected_maturity": "N/A for AI — evaluate as non-AI SaaS",
+        "expected_behavior": "Skill recognizes missing AI and marks AI phases as N/A. Evaluates SaaS fundamentals (Phase 1, 3 partially, 5, 6, 7, 8). Does NOT score all AI items as 0 — that would be misleading.",
+        "expected_applicable_areas": "~24 areas, max 72 points",
+        "must_flag": [
+          "No AI product — AI-specific phases not applicable",
+          "SaaS fundamentals still auditable",
+          "Single pricing tier is a red flag",
+          "No payment infrastructure mentioned",
+          "No launch strategy",
+          "No legal pages mentioned"
+        ]
+      }
+    }
+  ]
+}
