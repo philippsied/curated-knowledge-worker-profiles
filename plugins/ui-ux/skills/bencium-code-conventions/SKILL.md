@@ -1,7 +1,6 @@
 ---
 name: bencium-code-conventions
 description: Bence's code style, tech stack, and workflow conventions
-when_to_use: When writing code or setting up projects for Bence
 ---
 
 # Code Conventions

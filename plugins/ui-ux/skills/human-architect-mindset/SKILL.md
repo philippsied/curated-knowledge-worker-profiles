@@ -1,7 +1,6 @@
 ---
 name: human-architect-mindset
 description: Systematic architectural thinking for irreplaceable human capabilities - domain modeling, systems thinking, constraint navigation, and AI-aware problem decomposition. Use proactively when detecting architectural decisions, system design discussions, or multi-component planning.
-when_to_use: proactively when detecting system design, architecture discussions, technology choices, problem decomposition, integration planning, breaking change discussions, or any decision that affects multiple components, teams, or has compliance implications
 ---
 
 # Human Architect Mindset
@@ -607,13 +606,11 @@ You cannot make AI truly loyal. But you can make AI operationally useful for mai
 
 ## Related Skills
 
+> These skills require the **superpowers** plugin to be installed.
+
 **Before implementation:**
 - `superpowers:brainstorming` - Refine ideas into designs
 - `superpowers:writing-plans` - Create detailed implementation plans
-
-**During design:**
-- `relationship-design` - For AI-first interfaces
-- `scientific-critical-thinking` - For evaluating technical claims
 
 **Before committing:**
 - `superpowers:verification-before-completion` - Verify before claiming done

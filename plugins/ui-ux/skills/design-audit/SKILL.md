@@ -33,8 +33,8 @@ Read and internalize before forming any opinion:
 You must understand the current system completely before proposing changes.
 
 **Reference files** (read as needed):
-- `references/design-principles.md` — Core design rules and philosophy
-- `references/audit-template.md` — Output format for the phased plan
+- `design-principles.md` — Core design rules and philosophy
+- `audit-template.md` — Output format for the phased plan
 
 ---
 
