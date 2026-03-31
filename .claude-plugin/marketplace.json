@@ -8,8 +8,8 @@
   },
   "plugins": [
     {
-      "name": "ui-ux",
-      "source": "./plugins/ui-ux",
+      "name": "High-Values Design-Skills",
+      "source": "./plugins/design",
       "version": "1.0.0",
       "description": "Curated set of high quality skills for ui and ux related task like creating design systems.",
       "author": {
