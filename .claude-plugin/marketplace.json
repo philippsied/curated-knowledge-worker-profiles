@@ -8,7 +8,7 @@
   },
   "plugins": [
     {
-      "name": "High-Values Design-Skills",
+      "name": "Curated-Design-Tools",
       "source": "./plugins/design",
       "version": "1.0.0",
       "description": "Curated set of high quality skills for ui and ux related task like creating design systems.",
