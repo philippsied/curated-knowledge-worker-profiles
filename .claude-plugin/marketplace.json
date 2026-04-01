@@ -17,6 +17,28 @@
       },
       "keywords": ["ux-design", "frontend", "creative-design", "ui"],
       "category": "design"
+    },
+    {
+      "name": "saas",
+      "source": "./plugins/saas",
+      "version": "1.0.0",
+      "description": "Go-to-market audit and launch readiness skills for SaaS products.",
+      "author": {
+        "name": "Philipp"
+      },
+      "keywords": ["saas", "gtm", "audit", "launch", "product"],
+      "category": "business"
+    },
+    {
+      "name": "website-building",
+      "source": "./plugins/website-building",
+      "version": "1.0.0",
+      "description": "Skills for building websites: conversion-optimised landing pages and domain name brainstorming.",
+      "author": {
+        "name": "Mixed"
+      },
+      "keywords": ["landing-page", "domain", "website", "conversion"],
+      "category": "web"
     }
   ]
 }

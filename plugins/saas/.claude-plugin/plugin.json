@@ -1,0 +1,10 @@
+{
+  "name": "saas",
+  "version": "1.0.0",
+  "description": "Go-to-market audit and launch readiness skills for SaaS products. Evaluates 38 areas across 8 phases.",
+  "author": {
+    "name": "Philipp"
+  },
+  "keywords": ["saas", "gtm", "audit", "launch", "product"],
+  "repository": "https://github.com/philippsied/curated-knowledge-worker-profiles"
+}
