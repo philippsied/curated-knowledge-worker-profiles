@@ -1,0 +1,10 @@
+{
+  "name": "website-building",
+  "version": "1.0.0",
+  "description": "Skills for building websites: conversion-optimised landing pages and domain name brainstorming.",
+  "author": {
+    "name": "Mixed"
+  },
+  "keywords": ["landing-page", "domain", "website", "conversion"],
+  "repository": "https://github.com/philippsied/curated-knowledge-worker-profiles"
+}
