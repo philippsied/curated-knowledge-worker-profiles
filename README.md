@@ -6,13 +6,13 @@ Eine handverlesene Sammlung von Claude-Plugins fuer Wissensarbeiter – von UI/U
 
 | Plugin | Kategorie | Skills | Beschreibung |
 |--------|-----------|--------|--------------|
-| [ui-ux](plugins/design/) | Design | 24 | UI/UX-Design, Design-Systeme, Typografie, Forschung, Barrierefreiheit |
+| [design](plugins/design/) | Design | 24 | UI/UX-Design, Design-Systeme, Typografie, Forschung, Barrierefreiheit |
 | [saas](plugins/saas/) | Business | 1 | Go-to-Market-Audit und Launch-Readiness fuer SaaS-Produkte |
 | [website-building](plugins/website-building/) | Web | 2 | Landingpage-Erstellung und Domain-Namensfindung |
 
 ## Schnellübersicht aller Skills
 
-### UI/UX (`plugins/design/`)
+### Design (`plugins/design/`)
 
 | Skill | Zweck |
 |-------|-------|

@@ -4,9 +4,9 @@ Strukturierte Audits und Launch-Readiness-Pruefungen fuer SaaS-Produkte – von 
 
 ## Enthaltene Skills
 
-| Skill | Zweck |
-|-------|-------|
-| **audit-saas-gtm** | Go-to-Market-Audit fuer SaaS-Produkte: bewertet 38 Bereiche in 8 Phasen (Produktstrategie, UX/AI-Design, Architektur, Safety/Compliance, GTM-Operations, Payment, Discovery/Launch). Erstellt einen priorisierten Report mit Score (0–114) und konkreten Handlungsempfehlungen. Funktioniert fuer AI-SaaS und klassische SaaS. |
+| Skill | Beschreibung | Herkunft |
+|-------|-------------|----------|
+| **audit-saas-gtm** | Strukturierter GTM-Audit fuer SaaS-Produkte: bewertet 38 Bereiche in 8 Phasen (Produktstrategie, AI/ML, UX-Design, Safety/Compliance, Architektur, GTM-Operations, Payment-Infrastruktur, Discovery/Launch). Score 0–114, priorisierter Report mit konkreten Handlungsempfehlungen. Fuer AI-SaaS und klassische SaaS. | Philipp Sied |
 
 ## Ausloeser
 
